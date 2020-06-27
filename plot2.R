@@ -14,9 +14,8 @@ dateTime <-as.POSIXct(strptime(paste(powSum$Date, powSum$Time, sep=" "),"%d/%m/%
 powSum <- cbind(dateTime, powSum)
 ##remove any na values
 powSum <- powSum[complete.cases(powSum), ]
-##Create Plot 1
-png(filename = "plot1.png", width = 480, height = 480)
-hist(powSum$Global_active_power, col="Red", main="Global Active Power", 
-     xlab="Global Active Power (kilowatts)", ylab="Frequency")
+##Create Plot 2
+png(filename = "plot2.png", width = 480, height = 480)
+with(powSum, plot(dateTime,Global_active_power, type = "l", col = "black", xlab = "", ylab = "Global Active Power (kilowatts)"))
 dev.off()
 
